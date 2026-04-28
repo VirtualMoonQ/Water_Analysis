@@ -95,6 +95,47 @@ grid.arrange(p1, p2, p3, ncol = 3)
 dev.off()
 
 # ==============================
+# BOXPLOT - GROUP 2
+# ==============================
+
+p4 <- ggplot(df, aes(x = as.factor(Potability), y = Chloramines, fill = as.factor(Potability))) +
+  geom_boxplot() +
+  labs(title = "Chloramines by Potability")
+
+p5 <- ggplot(df, aes(x = as.factor(Potability), y = Sulfate, fill = as.factor(Potability))) +
+  geom_boxplot() +
+  labs(title = "Sulfate by Potability")
+
+p6 <- ggplot(df, aes(x = as.factor(Potability), y = Conductivity, fill = as.factor(Potability))) +
+  geom_boxplot() +
+  labs(title = "Conductivity by Potability")
+
+png("boxplots_group2.png", width=1200, height=400)
+grid.arrange(p4, p5, p6, ncol = 3)
+dev.off()
+
+
+# ==============================
+# BOXPLOT - GROUP 3
+# ==============================
+
+p7 <- ggplot(df, aes(x = as.factor(Potability), y = ph, fill = as.factor(Potability))) +
+  geom_boxplot() +
+  labs(title = "pH by Potability")
+
+p8 <- ggplot(df, aes(x = as.factor(Potability), y = Hardness, fill = as.factor(Potability))) +
+  geom_boxplot() +
+  labs(title = "Hardness by Potability")
+
+p9 <- ggplot(df, aes(x = as.factor(Potability), y = Solids, fill = as.factor(Potability))) +
+  geom_boxplot() +
+  labs(title = "Solids by Potability")
+
+png("boxplots_group3.png", width=1200, height=400)
+grid.arrange(p7, p8, p9, ncol = 3)
+dev.off()
+
+# ==============================
 # PHẦN 5: MODEL
 # ==============================
 
