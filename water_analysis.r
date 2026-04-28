@@ -70,6 +70,31 @@ corrplot(cor_matrix, method = "color", tl.cex = 0.7)
 dev.off()
 
 # ==============================
+# BOXPLOT (SO SÁNH THEO POTABILITY)
+# ==============================
+
+library(gridExtra)
+
+p1 <- ggplot(df, aes(x = as.factor(Potability), y = Organic_carbon, fill = as.factor(Potability))) +
+  geom_boxplot() +
+  labs(title = "Organic Carbon by Potability")
+
+p2 <- ggplot(df, aes(x = as.factor(Potability), y = Trihalomethanes, fill = as.factor(Potability))) +
+  geom_boxplot() +
+  labs(title = "Trihalomethanes by Potability")
+
+p3 <- ggplot(df, aes(x = as.factor(Potability), y = Turbidity, fill = as.factor(Potability))) +
+  geom_boxplot() +
+  labs(title = "Turbidity by Potability")
+
+# Save boxplot
+png("boxplots.png", width=1200, height=400)
+
+grid.arrange(p1, p2, p3, ncol = 3)
+
+dev.off()
+
+# ==============================
 # PHẦN 5: MODEL
 # ==============================
 
